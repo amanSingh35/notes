@@ -11,10 +11,6 @@
         "src": "/(.*)",
         "dest": "index.js"
       }
-    ],
-    "env": {
-      "MONGO_URI": "@mongo_uri",
-      "ACCESS_TOKEN_SECRET": "@access_token_secret"
-    }
+    ]
   }
   
