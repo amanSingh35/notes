@@ -413,10 +413,10 @@ app.get("/search-notes/", authenticateToken, async (req, res) => {
 });
 
 // Use a dynamic port (process.env.PORT) or default to 8000
-// const PORT = process.env.PORT || 8000;
-// app.listen(PORT, () => {
-//   console.log(`Server is running on port ${PORT}`);
-// });
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 
 //Export the app for testing or external use
 module.exports = app;
