@@ -1,39 +1,54 @@
-MERN Stack Notes Application
+# MERN Stack Notes Application
+
 A full-featured notes application built using the MERN stack (MongoDB, Express, React, Node.js). This app allows users to create, edit, delete, search, and manage notes with features like authentication and note pinning.
 
-Features
-1.User Authentication: Secure user registration and login using JWT.
-2.CRUD Operations: Create, read, update, and delete notes.
-3.Pin Important Notes: Users can pin notes to the top for quick access.
-4.Search Notes: Search through your notes by title or content.
-5.Responsive Design: Works well on both desktop and mobile devices.
+## Features
 
-Technologies Used
-1.MongoDB: Database to store users and notes.
-2.Express: Backend framework to handle API requests.
-3.React: Frontend library for building the user interface.
-4.Node.js: Runtime environment for executing JavaScript on the server.
-5.JWT (JSON Web Tokens): Used for secure authentication.
-6.Mongoose: ORM for MongoDB, providing easy interaction with the database.
+1. **User Authentication**: Secure user registration and login using JWT.
+2. **CRUD Operations**: Create, read, update, and delete notes.
+3. **Pin Important Notes**: Users can pin notes to the top for quick access.
+4. **Search Notes**: Search through your notes by title or content.
+5. **Responsive Design**: Works well on both desktop and mobile devices.
 
-Register a new user.
-POST /login: Log in an existing user and receive a JWT token.
-Notes
-POST /add-note: Add a new note (JWT required).
-PUT /edit-post/:noteId: Edit an existing note (JWT required).
-DELETE /delete-note/:noteId: Delete a note (JWT required).
-GET /get-all-notes: Retrieve all notes for the authenticated user (JWT required).
-GET /search-notes?query=searchTerm: Search for notes by title or content (JWT required).
-PUT /edit-isPinned/:noteId: Pin or unpin a note (JWT required).
-Screenshots
+## Technologies Used
+
+1. **MongoDB**: Database to store users and notes.
+2. **Express**: Backend framework to handle API requests.
+3. **React**: Frontend library for building the user interface.
+4. **Node.js**: Runtime environment for executing JavaScript on the server.
+5. **JWT (JSON Web Tokens)**: Used for secure authentication.
+6. **Mongoose**: ORM for MongoDB, providing easy interaction with the database.
+
+## API Endpoints
+
+### Authentication
+
+- `POST /create-account`: Register a new user.
+- `POST /login`: Log in an existing user and receive a JWT token.
+
+### Notes
+
+- `POST /add-note`: Add a new note (JWT required).
+- `PUT /edit-post/:noteId`: Edit an existing note (JWT required).
+- `DELETE /delete-note/:noteId`: Delete a note (JWT required).
+- `GET /get-all-notes`: Retrieve all notes for the authenticated user (JWT required).
+- `GET /search-notes?query=searchTerm`: Search for notes by title or content (JWT required).
+- `PUT /edit-isPinned/:noteId`: Pin or unpin a note (JWT required).
+
+## Screenshots
+
 Add relevant screenshots or GIFs of your application here to give users a preview of what it looks like.
 
-Future Improvements
-Add a feature to share notes with other users.
-Implement password hashing for better security.
-Add user profile management.
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
+## Future Improvements
+
+- Add a feature to share notes with other users.
+- Implement password hashing for better security.
+- Add user profile management.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
 
 Contact
 For any inquiries or contributions, feel free to contact me at your-email@example.com.
