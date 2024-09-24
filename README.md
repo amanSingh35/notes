@@ -2,77 +2,21 @@ MERN Stack Notes Application
 A full-featured notes application built using the MERN stack (MongoDB, Express, React, Node.js). This app allows users to create, edit, delete, search, and manage notes with features like authentication and note pinning.
 
 Features
-User Authentication: Secure user registration and login using JWT.
-CRUD Operations: Create, read, update, and delete notes.
-Pin Important Notes: Users can pin notes to the top for quick access.
-Search Notes: Search through your notes by title or content.
-Responsive Design: Works well on both desktop and mobile devices.
+1.User Authentication: Secure user registration and login using JWT.
+2.CRUD Operations: Create, read, update, and delete notes.
+3.Pin Important Notes: Users can pin notes to the top for quick access.
+4.Search Notes: Search through your notes by title or content.
+5.Responsive Design: Works well on both desktop and mobile devices.
+
 Technologies Used
-MongoDB: Database to store users and notes.
-Express: Backend framework to handle API requests.
-React: Frontend library for building the user interface.
-Node.js: Runtime environment for executing JavaScript on the server.
-JWT (JSON Web Tokens): Used for secure authentication.
-Mongoose: ORM for MongoDB, providing easy interaction with the database.
-Getting Started
-Prerequisites
-To run this project locally, ensure you have the following installed:
+1.MongoDB: Database to store users and notes.
+2.Express: Backend framework to handle API requests.
+3.React: Frontend library for building the user interface.
+4.Node.js: Runtime environment for executing JavaScript on the server.
+5.JWT (JSON Web Tokens): Used for secure authentication.
+6.Mongoose: ORM for MongoDB, providing easy interaction with the database.
 
-Node.js (v12.x or later)
-MongoDB (local or cloud instance)
-Git
-Installation
-Clone the repository:
-
-bash
-Copy code
-git clone https://github.com/your-username/notes-app.git
-cd notes-app
-Install server dependencies:
-
-bash
-Copy code
-cd backend
-npm install
-Install client dependencies:
-
-bash
-Copy code
-cd ../frontend
-npm install
-Set up environment variables:
-
-Create a .env file in the backend directory and add the following variables:
-
-bash
-Copy code
-ACCESS_TOKEN_SECRET=your_secret_key
-CONNECTION_STRING=mongodb_connection_string
-PORT=8000
-Start MongoDB server:
-
-If using a local MongoDB instance, ensure MongoDB is running by executing:
-
-bash
-Copy code
-mongod
-Run the backend server:
-
-bash
-Copy code
-cd backend
-npm start
-Run the frontend server:
-
-bash
-Copy code
-cd ../frontend
-npm start
-Access the application: Open your browser and navigate to http://localhost:3000 for the frontend and http://localhost:8000 for the backend API.
-
-API Endpoints
-Authentication
-POST /create-account: Register a new user.
+Register a new user.
 POST /login: Log in an existing user and receive a JWT token.
 Notes
 POST /add-note: Add a new note (JWT required).
@@ -93,4 +37,8 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 Contact
 For any inquiries or contributions, feel free to contact me at your-email@example.com.
+![Screenshot (129)](https://github.com/user-attachments/assets/8c7c0829-7107-49ce-a3d8-c52d5e6478ba)
+![Screenshot (128)](https://github.com/user-attachments/assets/7db1e615-5e01-49af-93d9-fb06334b1a5e)
+![Screenshot (127)](https://github.com/user-attachments/assets/0b7299ad-ae6d-49fd-816b-ceca3bba3c0e)
+![Screenshot (126)](https://github.com/user-attachments/assets/e385d971-889b-42a8-867e-d03166bd5ef2)
 
