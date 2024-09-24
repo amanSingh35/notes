@@ -37,7 +37,11 @@ A full-featured notes application built using the MERN stack (MongoDB, Express, 
 
 ## Screenshots
 
-Add relevant screenshots or GIFs of your application here to give users a preview of what it looks like.
+![Screenshot (129)](https://github.com/user-attachments/assets/8c7c0829-7107-49ce-a3d8-c52d5e6478ba)
+![Screenshot (128)](https://github.com/user-attachments/assets/7db1e615-5e01-49af-93d9-fb06334b1a5e)
+![Screenshot (127)](https://github.com/user-attachments/assets/0b7299ad-ae6d-49fd-816b-ceca3bba3c0e)
+![Screenshot (126)](https://github.com/user-attachments/assets/e385d971-889b-42a8-867e-d03166bd5ef2)
+
 
 ## Future Improvements
 
@@ -51,9 +55,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 
 Contact
-For any inquiries or contributions, feel free to contact me at your-email@example.com.
-![Screenshot (129)](https://github.com/user-attachments/assets/8c7c0829-7107-49ce-a3d8-c52d5e6478ba)
-![Screenshot (128)](https://github.com/user-attachments/assets/7db1e615-5e01-49af-93d9-fb06334b1a5e)
-![Screenshot (127)](https://github.com/user-attachments/assets/0b7299ad-ae6d-49fd-816b-ceca3bba3c0e)
-![Screenshot (126)](https://github.com/user-attachments/assets/e385d971-889b-42a8-867e-d03166bd5ef2)
-
+For any inquiries or contributions, feel free to contact me at amansinghmail07@example.com.
