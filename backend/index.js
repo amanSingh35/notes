@@ -196,28 +196,24 @@ app.post("/login", async (req, res) => {
 });
 
 //API for adding notes.
-app.post("/add-note", authenticateToken, async (req, res) => {
+app.post("/add-note", async (req, res) => {
   const { title, content, tags } = req.body;
-  const { user } = req.user;
 
+  // Validate request body
   if (!title) {
-    return res
-      .status(400)
-      .json({ error: true, message: "Content is required" });
+    return res.status(400).json({ error: true, message: "Title is required" });
   }
 
   if (!content) {
-    return res
-      .status(400)
-      .json({ error: true, message: "Content is required" });
+    return res.status(400).json({ error: true, message: "Content is required" });
   }
 
   try {
+    // Create new note (without user validation)
     const note = new Note({
       title,
       content,
-      tags: tags || [],
-      userId: user._id,
+      tags: tags || []
     });
 
     await note.save();
@@ -228,12 +224,14 @@ app.post("/add-note", authenticateToken, async (req, res) => {
       message: "Note added successfully",
     });
   } catch (error) {
-    return res.status(400).json({
+    console.error("Error saving note:", error);  // Log the actual error for debugging
+    return res.status(500).json({
       error: true,
       message: "Internal Server Error",
     });
   }
 });
+
 
 //API for editing notes
 app.put("/edit-post/:noteId", authenticateToken, async (req, res) => {
