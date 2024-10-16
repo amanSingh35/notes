@@ -3,38 +3,34 @@ import TagInput from "../../components/Input/TagInput";
 import { MdClose } from "react-icons/md";
 import axiosInstance from "../../utils/axiosInstance";
 
-const AddEditNotes = ({ showToastMessage,getAllNotes, noteData, type, onClose }) => {
-  const [title, setTitle] = useState(noteData?.title||"");
-  const [content, setContent] = useState(noteData?.content||"");
-  const [tags, setTags] = useState(noteData?.tags||[]);
+const AddEditNotes = ({ showToastMessage, getAllNotes, noteData, type, onClose }) => {
+  const [title, setTitle] = useState(noteData?.title || "");
+  const [content, setContent] = useState(noteData?.content || "");
+  const [tags, setTags] = useState(noteData?.tags || []);
   const [error, setError] = useState(null);
 
-  //edit note
+  // Edit note
   const editnote = async () => {
-    const noteId=noteData._id;
+    const noteId = noteData._id;
     try {
-      const response = await axiosInstance.put("/edit-post/"+noteId, {
+      const response = await axiosInstance.put("/edit-post/" + noteId, {
         title,
         content,
         tags,
       });
       if (response.data && response.data.note) {
-        showToastMessage("Note Updated Successfully")
+        showToastMessage("Note Updated Successfully");
         getAllNotes();
         onClose();
       }
     } catch (error) {
-      if (
-        error.response &&
-        error.response.data &&
-        error.response.data.message
-      ) {
+      if (error.response && error.response.data && error.response.data.message) {
         setError(error.response.data.message);
       }
     }
   };
 
-  //add note
+  // Add note
   const addNote = async () => {
     try {
       const response = await axiosInstance.post("/add-note", {
@@ -43,16 +39,12 @@ const AddEditNotes = ({ showToastMessage,getAllNotes, noteData, type, onClose })
         tags,
       });
       if (response.data && response.data.note) {
-        showToastMessage("Note Added Successfully")
+        showToastMessage("Note Added Successfully");
         getAllNotes();
         onClose();
       }
     } catch (error) {
-      if (
-        error.response &&
-        error.response.data &&
-        error.response.data.message
-      ) {
+      if (error.response && error.response.data && error.response.data.message) {
         setError(error.response.data.message);
       }
     }
@@ -75,19 +67,22 @@ const AddEditNotes = ({ showToastMessage,getAllNotes, noteData, type, onClose })
       addNote();
     }
   };
+
   return (
-    <div className="relative outline-none">
+    <div className="fixed inset-0 bg-white bg-opacity-90 flex flex-col p-4 md:p-8 overflow-y-auto z-50">
       <button
-        className="w-10 h-10 rounded-full flex items-center justify-center absolute -top-3 -right-3 hover:bg-slate-500"
+        className="w-10 h-10 rounded-full flex items-center justify-center absolute top-4 right-4 hover:bg-slate-500 transition-colors"
         onClick={onClose}
       >
         <MdClose className="text-xl text-slate-400" />
       </button>
-      <div className="flex flex-col gap-y-2">
+
+      {/* Content Wrapper */}
+      <div className="flex flex-col gap-y-2 mt-16 md:mt-4">
         <label className="input-level">TITLE</label>
         <input
           type="text"
-          className="text=2xl text-slate-950 outline-none"
+          className="text-lg text-slate-950 outline-none border border-slate-300 rounded p-2"
           placeholder="Go to gym"
           value={title}
           onChange={({ target }) => setTitle(target.value)}
@@ -98,9 +93,9 @@ const AddEditNotes = ({ showToastMessage,getAllNotes, noteData, type, onClose })
         <label className="input-label">CONTENT</label>
         <textarea
           type="text"
-          className="text-sm text-slate-950 outline-none bg-slate-50 p-2 rounded"
+          className="text-sm text-slate-950 outline-none bg-slate-50 p-2 rounded border border-slate-300"
           placeholder="Content"
-          rows={10}
+          rows={8}
           value={content}
           onChange={({ target }) => setContent(target.value)}
         />
@@ -109,15 +104,13 @@ const AddEditNotes = ({ showToastMessage,getAllNotes, noteData, type, onClose })
         <label className="input-label">TAGS</label>
         <TagInput tags={tags} setTags={setTags} />
       </div>
-      {/* printing the error */}
+      {/* Error message */}
       {error && <p className="text-red-500 text-xs pt-4">{error}</p>}
       <button
         className="btn_primary font-medium mt-5 p-3"
-        onClick={() => {
-          handleAddNote();
-        }}
+        onClick={handleAddNote}
       >
-        {type==="edit"?"UPDATE":"ADD"}
+        {type === "edit" ? "UPDATE" : "ADD"}
       </button>
     </div>
   );
