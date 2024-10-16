@@ -23,7 +23,6 @@ mongoose
 
 // Middleware
 app.use(express.json()); // JSON parsing middleware
-const cors = require("cors");
 app.use(cors({
   origin: '*', // Or specify the origin you want to allow, e.g., 'http://yourfrontend.com'
   methods: 'GET,POST,PUT,DELETE',
