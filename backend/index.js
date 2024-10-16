@@ -196,8 +196,14 @@ app.post("/login", async (req, res) => {
 });
 
 //API for adding notes.
-app.post("/add-note", async (req, res) => {
+app.post("/add-note", authenticateToken, async (req, res) => {
   const { title, content, tags } = req.body;
+  const { user } = req.user;
+
+  // Validate if user is authenticated
+  if (!user) {
+    return res.status(401).json({ error: true, message: "Unauthorized" });
+  }
 
   // Validate request body
   if (!title) {
@@ -209,11 +215,12 @@ app.post("/add-note", async (req, res) => {
   }
 
   try {
-    // Create new note (without user validation)
+    // Create new note
     const note = new Note({
       title,
       content,
-      tags: tags || []
+      tags: tags || [],
+      userId: user._id,  // Check if user._id exists
     });
 
     await note.save();
@@ -231,6 +238,7 @@ app.post("/add-note", async (req, res) => {
     });
   }
 });
+
 
 
 //API for editing notes
