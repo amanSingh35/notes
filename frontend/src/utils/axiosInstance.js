@@ -3,7 +3,7 @@ import { BASE_URL } from "./constants";
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
-  timeout: 40000,
+  timeout: 80000,
   headers: {
     "Content-Type": "application/json",
   },
