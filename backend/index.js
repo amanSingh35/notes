@@ -23,7 +23,12 @@ mongoose
 
 // Middleware
 app.use(express.json()); // JSON parsing middleware
-app.use(cors({ origin: "*" })); // Allow all origins (adjust in production)
+const cors = require("cors");
+app.use(cors({
+  origin: '*', // Or specify the origin you want to allow, e.g., 'http://yourfrontend.com'
+  methods: 'GET,POST,PUT,DELETE',
+  allowedHeaders: 'Content-Type,Authorization'
+}));
 
 // ROUTES
 
