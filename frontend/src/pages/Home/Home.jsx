@@ -49,12 +49,8 @@ const Home = () => {
         getAllNotes();
       }
     } catch (error) {
-      if (
-        error.response &&
-        error.response.data &&
-        error.response.data.message
-      ) {
-        console.log("An expected error occured. Please try again.");
+      if (error.response && error.response.data && error.response.data.message) {
+        console.log("An expected error occurred. Please try again.");
       }
     }
   };
@@ -62,13 +58,13 @@ const Home = () => {
   const [userInfo, setUserInfo] = useState();
   const navigate = useNavigate();
   const [allNotes, setAllNotes] = useState([]);
-  const [isSearch,setIsSearch]=useState(false);
+  const [isSearch, setIsSearch] = useState(false);
 
   const handleEdit = (noteDetails) => {
     setOpenAddEditModal({ isShown: true, data: noteDetails, type: "edit" });
   };
 
-  //get User Info
+  // Get User Info
   const getUserInfo = async () => {
     try {
       const response = await axiosInstance.get("/get-user");
@@ -84,7 +80,7 @@ const Home = () => {
     }
   };
 
-  //getting all notes when the page home page loads or comes up.
+  // Getting all notes when the home page loads
   const getAllNotes = async () => {
     try {
       const response = await axiosInstance.get("/get-all-notes");
@@ -93,11 +89,11 @@ const Home = () => {
         setAllNotes(response.data.notes);
       }
     } catch (error) {
-      console.log("An expected error occured. Please try again.");
+      console.log("An expected error occurred. Please try again.");
     }
   };
 
-  //searching for notes
+  // Searching for notes
   const onSearchNote = async (query) => {
     try {
       const response = await axiosInstance.get("/search-notes", {
@@ -113,28 +109,28 @@ const Home = () => {
     }
   };
 
-  const handleClearSearch=()=>{
+  const handleClearSearch = () => {
     setIsSearch(false);
     getAllNotes();
-  }
+  };
 
-  const updateIsPinned = async (noteData)=>{
-    const noteId=noteData._id;
+  const updateIsPinned = async (noteData) => {
+    const noteId = noteData._id;
 
     try {
-      const response=await axiosInstance.put("/edit-isPinned/"+noteId,{
-        isPinned:!noteData.isPinned,
-      })  
+      const response = await axiosInstance.put("/edit-isPinned/" + noteId, {
+        isPinned: !noteData.isPinned,
+      });
 
-      if(response.data && response.data.note){
+      if (response.data && response.data.note) {
         showToastMessage("Note Updated Successfully");
         getAllNotes();
       }
     } catch (error) {
       console.log(error);
     }
-  }
-  
+  };
+
   useEffect(() => {
     getUserInfo();
     getAllNotes();
@@ -143,11 +139,11 @@ const Home = () => {
 
   return (
     <>
-    <Navbar userInfo={userInfo} onSearchNote={onSearchNote} handleClearSearch={handleClearSearch}/>
+      <Navbar userInfo={userInfo} onSearchNote={onSearchNote} handleClearSearch={handleClearSearch} />
       <div className="container mx-auto">
         {allNotes.length > 0 ? (
           <div className="grid grid-cols-3 gap-4 mt-8">
-            {allNotes.map((item, index) => (
+            {allNotes.map((item) => (
               <NotesCard
                 key={item._id}
                 title={item.title}
@@ -163,8 +159,8 @@ const Home = () => {
           </div>
         ) : (
           <EmptyCard
-            imgSrc={isSearch ? Empty: img}
-            message={isSearch ? `Oops! No notes found matching your search.`:`Start creating your first note! Click the 'Add' button to jot down your thoughts, ideas and reminders.Let's get started!`}
+            imgSrc={isSearch ? Empty : img}
+            message={isSearch ? `Oops! No notes found matching your search.` : `Start creating your first note! Click the 'Add' button to jot down your thoughts, ideas, and reminders. Let's get started!`}
           />
         )}
       </div>
@@ -185,7 +181,7 @@ const Home = () => {
           },
         }}
         contentLabel=""
-        className="w-[40%] max-h-3/4 bg-white rounded-md mx-auto mt-14 p-5 "
+        className="w-[40%] max-h-3/4 bg-white rounded-md mx-auto mt-14 "
       >
         <AddEditNotes
           type={openAddEditModal.type}
