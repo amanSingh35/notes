@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ onSearchNote, userInfo, handleClearSearch }) => {
   const [searchQuery, setSearchQuery] = useState("");
-
   const navigate = useNavigate();
 
   const onLogout = () => {
@@ -25,9 +24,9 @@ const Navbar = ({ onSearchNote, userInfo, handleClearSearch }) => {
   };
 
   return (
-    <div className="bg-white flex items-center justify-between px-4 py-2 drop-shadow-md">
+    <div className="bg-white flex flex-col md:flex-row items-center justify-between px-4 py-2 drop-shadow-md">
       <h2 className="text-xl font-medium text-black">Notes</h2>
-      <div className="flex-grow mr-4">
+      <div className="flex-grow mt-2 md:mt-0 flex justify-center">
         <SearchBar
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
